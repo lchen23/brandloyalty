@@ -1,5 +1,4 @@
-# In Flex We Trust
-A consulting data science project for the Flex company
+<img src='title_page.png'>
 
 ## Introduction
 
