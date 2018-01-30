@@ -1,4 +1,4 @@
-<img src='title_page.png'>
+<img src='images/title_page.png'>
 
 ## Introduction
 
