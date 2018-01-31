@@ -23,30 +23,39 @@ In the Softcup dataset, ~50% of the customers answered "I use it as my primary p
 
 Overall, loyal vs non-loyal customers is a 60/40 split in the Flex dataset, and 50/50 in Softcup dataset.
 
-## Data preprocessing and feature engineering
+## Data preprocessing and visualization
 
-In order to pull out types of relationships between individual senders and recipients, I first identified and removed emails with the following features:
+For data-preprocessing, I did one-hot-encoding for the following categorical features (examples only, not all the features are listed here) and minmax scaling for all features later.
 
-* Messages without a recipient
-* Messages where the sender and recipient were the same
-* Messages not from an @enron.com address, as these generally represented spam or subscription emails
-* Messages from identifiable administrative accounts
-* Duplicate messages
-* Empty messages
-* Messages where `Fw` or `Fwd` appeared in the `Subject` field
-* Messages from infrequent message senders (i.e., senders who only sent 1-2 emails in the database)
+* 'What is your relationship status?',
+* 'What is your ethnicity?',
+* 'What is the highest level of education you've received? If currently enrolled, indicate highest degree received.',
+* 'On an average day, how busy would you say you are?',
+* 'What is your primary type of exercise?',
+* 'Which of the following products was your period product of choice before using a menstrual disc?',
+* 'What made you want to try Flex for the first time?',
+       
+After one-hot-encoding, 50 questions were transformed into 185 features. To visualize the distribution of this high-dimensional data, I made the following PCA scatter plots: 
 
-Removing emails with these features resulted in ~6000 emails for downstream analysis, and performance of unsupervised clustering (see section below) was greatly improved after removal of these entries.
+<img src='images/PCA.png' width='936' height='370'>
 
-After identifying the set of useable emails for the unsupervised learning task, I performed cleaning of message content. Text data is notoriously messy, and emails are no exception. Although generally NLP applications are concerned with misspellings and multiple references to similar concepts, for my task I was more worried about the inconsistent formatting of the Enron emails. Many messages contained spurious symbols and newline characters. More importantly, many individual messages actually contained within them entire email threads with (usually) a header such as `Original Message` or `From:` and then the original sender. These emails are problematic for two reasons: First, messages often get double counted due to the original message already being present in the dataset. Second, a long thread between individuals 'contaminates' the signal from the sender. Note that the data cleaning steps I took here left salutations and signatures intact.
+The PCA scatter plots show that the loyal and non-loyal group are clumped together like a hodgepodge. So, it's definitely a non-trivial classification problem. 
 
-## Identification of employee relationship types
+## Objective and approach
 
-### Feature engineering
+The main goal of this project is to find the most useful features for classification rather than the classification model by itself. As a result, I designed my analysis strategy to be use the survey data to build a classification model,  extract feature importance scores from the model and then pick the ones with the highest scores. Here, I choose to use random forest classifier because it's best suited to deal with categorical data and non-linear classification problems. The flow diagram is shown below:
 
-To make the problem of identifying relationship types more tractable, I broke the problem into two steps. First, I performed sentiment analysis of emails, as sentiment of a message can be a proxy for whether a relationship is positive, negative or neutral. Secondly, I performed clustering of emails to find different types of communications.  
+<img src='images/analysis_strategy.png' width='906' height='322'>
 
-I used the Python package `VADER` (Valence Aware Dictionary and sEntiment Reasoner), which is a deterministic rule-based model trained on social media data to identify polarity of sentiments. For this analysis, I will be showing the compound score produced by `VADER`, which is a weighted composite score of individual positive, neutral and negative scores normalized to be between -1 (most negative) and 1 (most positive). I scored the sentiment of each sentence in a message, then averaged the compound scores to get mean sentiment per email.
+
+## Feature insight 1
+
+After I finished building the modeling and rank the features by their importance scores, I found the single most important feature is the No. of discs customers used per cycle, as shown in the following figure:  
+
+
+<img src='images/feature_insight1.png' width='935' height='368'>
+
+Basically, the more they use the more likely they will be loyal and this is true for both brands. This finding could mean that: Customers having high volume of blood during period tend to be loyal. Moreover, this figure is also telling me that, a majority of the 180 features are not useful. They not only waste space and time but may also introduce extra noise. 
 
 Below are example messages scored as positive (`compound > 0.5`), neutral (`-0.5 <= compound <= 0.5`) and negative (`compound < -0.5`):
 
