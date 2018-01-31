@@ -55,15 +55,12 @@ After I finished building the modeling and rank the features by their importance
 
 <img src='images/feature_insight1.png' width='935' height='368'>
 
-Basically, the more they use the more likely they will be loyal and this is true for both brands. This finding could mean that: Customers having high volume of blood during period tend to be loyal. Moreover, this figure is also telling me that, a majority of the 180 features are not useful. They not only waste space and time but may also introduce extra noise. 
+Basically, the more they use the more likely they will be loyal and this is true for both brands. This finding could mean that: Customers having high volume of blood during period tend to be loyal. Moreover, this figure is also telling me that, a majority of the 180 features are not useful. They not only waste hard-drive space and computation time but may also introduce extra noise into the data, making the model underperform.
 
-Below are example messages scored as positive (`compound > 0.5`), neutral (`-0.5 <= compound <= 0.5`) and negative (`compound < -0.5`):
+For the 2nd round of analysis, I decided to first use the lasso method to prune down the number of features, add all the 2nd-order terms into the feature set to include interaction effects, train the random forest model and then extract feature importance score as done previously.Interestingly, I found some of the interaction terms are better predictors than the disc usage # alone. For example, as shown in the following figure, in the flex dataset, the No. 1 predictor is the customers use many discs and they like to use coupons when buying stuff. In the softcup dataset, the No. 1 predictor is they use many discs and also doing a lot of exercise during the week.
 
-<img src='images/pos.png' width='500' height='260'>
+<img src='images/feature_insight2.png' width='926' height='379'>
 
-<img src='images/neu.png' width='500' height='250'>
-
-<img src='images/neg.png' width='500' height='230'>
 
 We can see that `VADER` generally correctly scored the polarity of email message sentiment, though there are some surprising mistakes, such as `no problem` being scored as negative. Overall, on the Enron dataset, `VADER` performed best on neutral emails. Note that the thresholds for determining positive, neutral and negative emails are somewhat arbitrary. For the examples above I used cutoffs that are common in the literature when performing sentiment analysis, but for actual analysis thresholds should be determined based on the client's data. To illustrate this point, below is the distribution of sentiment scores in the Enron dataset:
 
