@@ -1,4 +1,4 @@
-<img src='title_page.png'>
+<img src='images/title_page.png'>
 
 ## Introduction
 
@@ -15,7 +15,11 @@ Flex currently own two different brands (Flex and Softcup) with two very similar
 ## Data overview
 
 There are two sets of survey data, one for each brand. The two surveys asked the same 50 questions about user demographics, product using experience (e.g. how many discs do you use per cycle), daily habit (e.g. do you often look for coupons when buying stuff, how many times do you exercise per week?)... etc.
-The target question in the survey is "how do you use our product?" In the Flex dataset, ~60% of the customers answered "I use it as my primary product"; ~37% of the customers answered "the product is great, but I still use others"; ~3% of the customers answered "I'm not sure or I don't use it anymore". In the Softcup dataset, ~50% of the customers answered "I use it as my primary product"; ~35% of the customers answered "the product is great, but I still use others"; ~15% of the customers answered "I'm not sure or I don't use it anymore". I labeled those customers whose reponses were "I use it as my primary product" as loyal customers and those whose reponses differed as non-loyal customers. Overall, loyal vs non-loyal customers is a 60/40 split in the Flex dataset, and 50/50 in Softcup dataset.
+The target question in the survey is "how do you use our product?" In the Flex dataset, ~60% of the customers answered "I use it as my primary product"; ~37% of the customers answered "the product is great, but I still use others"; ~3% of the customers answered "I'm not sure or I don't use it anymore". In the Softcup dataset, ~50% of the customers answered "I use it as my primary product"; ~35% of the customers answered "the product is great, but I still use others"; ~15% of the customers answered "I'm not sure or I don't use it anymore". I labeled those customers whose reponses were "I use it as my primary product" as loyal customers and those whose reponses differed as non-loyal customers. 
+
+<img src='images/user_dist.png' width='500' height='260'>
+
+Overall, loyal vs non-loyal customers is a 60/40 split in the Flex dataset, and 50/50 in Softcup dataset.
 
 ## Data preprocessing and feature engineering
 
