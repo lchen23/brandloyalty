@@ -64,7 +64,7 @@ For the 2nd round of analysis, I decided to first use the lasso method to prune 
 
 ## Conclusions
 
-In this project I've discovered 3 important traits of loyal customers (as shown in the figure below): 
+In this project, I've discovered 3 important traits of loyal customers (as shown in the figure below): 
 * Across 2 brands, customers having high volume on period tend to be loyal 
 * Flex users are price sensitive (like to use coupons when making a purchase)
 * Softcup user are physically active (like to exercise many times a week)
@@ -72,7 +72,7 @@ In this project I've discovered 3 important traits of loyal customers (as shown 
 <img src='images/conclusion.png' width='770' height='264'>
 
 I translated those discoveries into 3 marketing insights:
-* large abs volume is the most valuable feature for these products and should be strongly promoted in marketing efforts  
+* Large absorption volume is the most valuable feature for these products and should be strongly promoted in marketing efforts  
 * Hold more sales events for Flex users to promote customer loyalty
 * leak-proof protection even when doing exercise is a great feature to appeal to Softcup users
 
