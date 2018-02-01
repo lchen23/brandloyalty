@@ -3,7 +3,7 @@
 ## Introduction
 
 During my time as an Insight Health Data Science Fellow, I consulted with [The Flex Company](https://flexfits.com/), a leader in
-innovation in femine care, making innovative products for women on their period. Their mission is to reimagine and deliver life-changing period products for women everywhere. Prior to joining Insight, I received my Ph.D. from the Department of Applied Physics at Stanford University, worked as a post-doctoral fellow and research scientist in Lawrence Berkeley National Lab. As I prepared for my transition to industry, I became fascinated by how data analytics can be used to help business get to know their customers well, respond quickly to their customers' needs and make smart marketing decisions. I was therefore excited by the opportunity to work with Flex to learn more about capturing marketing insights from user surveys. Links to my slides can be found [here](https://docs.google.com/presentation/d/1Ccj7kysmJDRhyKcxaT2dNXoE31HjQyl2l09OQrkjC9Y/edit#slide=id.g2f2e832eb4_0_5) and my webapp can be found [here](http://viz.services).
+innovation in femine care, making innovative products for women on their period. Their mission is to reimagine and deliver life-changing period products for women everywhere. Prior to joining Insight, I received my Ph.D. from the Department of Applied Physics at Stanford University, worked as a post-doctoral fellow and research scientist in Lawrence Berkeley National Lab. As I prepared for my transition to industry, I became fascinated by how data analytics can be used to help business get to know their customers well, respond quickly to their customers' needs and make smart marketing decisions. I was therefore excited by the opportunity to work with Flex to learn more about capturing marketing insights from user surveys. Links to my slides can be found [here](https://docs.google.com/presentation/d/1Ccj7kysmJDRhyKcxaT2dNXoE31HjQyl2l09OQrkjC9Y/edit#slide=id.g2f2e832eb4_0_5).
 
 ## Problem formulation
 
@@ -52,23 +52,28 @@ The main goal of this project is to find the most useful features for classifica
 
 After I finished building the modeling and rank the features by their importance scores, I found the single most important feature is the No. of discs customers used per cycle, as shown in the following figure:  
 
-
 <img src='images/feature_insight1.png' width='935' height='368'>
 
 Basically, the more they use the more likely they will be loyal and this is true for both brands. This finding could mean that: Customers having high volume of blood during period tend to be loyal. Moreover, this figure is also telling me that, a majority of the 180 features are not useful. They not only waste hard-drive space and computation time but may also introduce extra noise into the data, making the model underperform.
+
+## Feature insight 2
 
 For the 2nd round of analysis, I decided to first use the lasso method to prune down the number of features, add all the 2nd-order terms into the feature set to include interaction effects, train the random forest model and then extract feature importance score as done previously.Interestingly, I found some of the interaction terms are better predictors than the disc usage # alone. For example, as shown in the following figure, in the flex dataset, the No. 1 predictor is the customers use many discs and they like to use coupons when buying stuff. In the softcup dataset, the No. 1 predictor is they use many discs and also doing a lot of exercise during the week.
 
 <img src='images/feature_insight2.png' width='926' height='379'>
 
+## Conclusions
 
+In this project I've discovered 3 important traits of loyal customers (as shown in the figure below): 
+* Across 2 brands, customers having high volume on period tend to be loyal 
+* Flex users are price sensitive (like to use coupons when making a purchase)
+* Softcup user are physically active (like to exercise many times a week)
 
 <img src='images/conclusion.png' width='770' height='264'>
 
-## Conclusions
+I translated those discoveries into 3 marketing insights:
+* large abs volume is the most valuable feature for these products and should be strongly promoted in marketing efforts  
+* Hold more sales events for Flex users to promote customer loyalty
+* leak-proof protection even when doing exercise is a great feature to appeal to Softcup users
 
-In this project I created a [dashboard prototype](http://viz.services) that Cultivate's client companies can use to visualize company emails and gain a better understanding of employee relationships and interactions. I identified relationship types by first scoring email sentiments as a proxy for positive, negative or neutral relationships and then performing unsupervised clustering to categorize types of emails that were being sent. Such a dashboard would allow rapid identification of non-typical behavior. Although the pipeline I developed provides a general guideline for analyzing a client company's communication data, each client's data will be different and the precise details and interpretations must be adapted. For example, it is possible that some of the emails `VADER` scored as negative were actually banter amongst close friends. Each client must therefore establish a baseline and interpretation of sentiment scores can then be tuned to the company's culture. Furthermore, clustering captures only a static view of any dataset, while communications are dynamic. Clustering should therefore be periodically re-run, and comparing the results from clustering over time could reveal how the client's culture is changing. For a new client, my recommendation would be to first run a clustering analysis once every quarter to get a sense of the types of communications within the company; downstream analysis can then be adjusted accordingly. 
-
-In addition to identifying types of relationships, Cultivate asked for a model to predict how these relationships change; however, at least in the Enron dataset, email sentiments and types were relatively [constant and neutral](#sentiments-per-cluster). Rather than predicting how these relationships change, I therefore recommended that Cultivate frame the problem as one of anomaly detection to flag any atypical communication patterns. Such an approach may also be able to identify bias or even positive team dynamics. Finally, I recommended that Cultivate instead use results from sentiment analyses and clustering to try and predict employee performance so that these results can produce actionable insights for clients. Combining these analyses into a dashboard would lead to a more useful product, resulting in increased client engagement with the software as well as increased new client onboarding, and I am excited to see how the product develops.
-
-Final thanks to Andy Horng, my contact at Cultivate. I enjoyed the opportunity to learn more about NLP and unsupervised learning.
+Final thanks to Mr. Panpan Wang, my contact at Flex. I enjoyed the opportunity to learn more about marketing research and analytics.
