@@ -1,5 +1,6 @@
 <img src='images/title_page.png'>
 
+## Presentation
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTp7_2Z44lxp6ay4hkPXwjCF9KKd1hIcOjOG-3N4ET-oD8Jfz85bKAL4JBPF4ebKE5uE6NjtqlH5P_b/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
@@ -52,7 +53,7 @@ The main goal of this project is to find the most useful features for classifica
 <img src='images/analysis_strategy.png' width='906' height='322'>
 
 
-## Feature insight 1
+## Feature insight I
 
 After I finished building the modeling and rank the features by their importance scores, I found the single most important feature is the No. of discs customers used per cycle, as shown in the following figure:  
 
@@ -60,7 +61,7 @@ After I finished building the modeling and rank the features by their importance
 
 Basically, the more they use the more likely they will be loyal and this is true for both brands. This finding could mean that: Customers having high volume of blood during period tend to be loyal. Moreover, this figure is also telling me that, a majority of the 180 features are not useful. They not only waste hard-drive space and computation time but may also introduce extra noise into the data, making the model underperform.
 
-## Feature insight 2
+## Feature insight II
 
 For the 2nd round of analysis, I decided to first use the lasso method to prune down the number of features, add all the 2nd-order terms into the feature set to include interaction effects, train the random forest model and then extract feature importance score as done previously.Interestingly, I found some of the interaction terms are better predictors than the disc usage # alone. For example, as shown in the following figure, in the flex dataset, the No. 1 predictor is the customers use many discs and they like to use coupons when buying stuff. In the softcup dataset, the No. 1 predictor is they use many discs and also doing a lot of exercise during the week.
 
