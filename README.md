@@ -2,8 +2,7 @@
 
 ## Presentation
 
-
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTp7_2Z44lxp6ay4hkPXwjCF9KKd1hIcOjOG-3N4ET-oD8Jfz85bKAL4JBPF4ebKE5uE6NjtqlH5P_b/embed?start=false&amp;loop=true&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSEylPFSHmQhrUuKemxfo4OOFFSQoXTjqRhQfN2Rwgt5bzoseed95i83BtVYot-PpNbmxiHTGozCVSy/embed?start=false&amp;loop=true&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
 ## Introduction
@@ -13,7 +12,7 @@ innovation in femine care, making innovative products for women on their period.
 
 ## Problem formulation
 
-Flex currently own two different brands (Flex and Softcup) with two very similar products. The company want to understand the key differences between users of each brand to help inform their marketing and distribution strategy. They had several hundred users of each brand (1500 total) fill out an identical survey that was meant to capture customers' demographic, geographic, psychographic, media consumption and purchase behavior information. Flex asked for two deliverables: 
+Flex currently own two different brands (A and B) with two very similar products. The company want to understand the key differences between users of each brand to help inform their marketing and distribution strategy. They had several hundred users of each brand (1500 total) fill out an identical survey that was meant to capture customers' demographic, geographic, psychographic, media consumption and purchase behavior information. Flex asked for two deliverables: 
 
 1. Across the two segments, what factors are most likely to make someone adopt our product as their primary period product?
 2. Is there any significant differences between the two groups? 
@@ -21,13 +20,13 @@ Flex currently own two different brands (Flex and Softcup) with two very similar
 ## Data overview
 
 There are two sets of survey data, one for each brand. The two surveys asked the same 50 questions about user demographics, product using experience (e.g. how many discs do you use per cycle), daily habit (e.g. do you often look for coupons when buying stuff, how many times do you exercise per week?)... etc.
-The target question in the survey is "how do you use our product?" In the Flex dataset, ~60% of the customers answered "I use it as my primary product"; ~37% of the customers answered "the product is great, but I still use others"; ~3% of the customers answered "I'm not sure or I don't use it anymore". 
+The target question in the survey is "how do you use our product?" In the Brand A dataset, ~60% of the customers answered "I use it as my primary product"; ~37% of the customers answered "the product is great, but I still use others"; ~3% of the customers answered "I'm not sure or I don't use it anymore". 
 
-In the Softcup dataset, ~50% of the customers answered "I use it as my primary product"; ~35% of the customers answered "the product is great, but I still use others"; ~15% of the customers answered "I'm not sure or I don't use it anymore". I labeled those customers whose reponses were "I use it as my primary product" as loyal customers and those whose reponses differed as non-loyal customers. 
+In the Brand B dataset, ~50% of the customers answered "I use it as my primary product"; ~35% of the customers answered "the product is great, but I still use others"; ~15% of the customers answered "I'm not sure or I don't use it anymore". I labeled those customers whose reponses were "I use it as my primary product" as loyal customers and those whose reponses differed as non-loyal customers. 
 
 <img src='images/user_dist.png' width='911' height='320'>
 
-Overall, loyal vs non-loyal customers is a 60/40 split in the Flex dataset, and 50/50 in Softcup dataset.
+Overall, loyal vs non-loyal customers is a 60/40 split in the Brand A dataset, and 50/50 in Brand B dataset.
 
 ## Data preprocessing and visualization
 
@@ -39,7 +38,7 @@ For data-preprocessing, I did one-hot-encoding for the following categorical fea
 * 'On an average day, how busy would you say you are?',
 * 'What is your primary type of exercise?',
 * 'Which of the following products was your period product of choice before using a menstrual disc?',
-* 'What made you want to try Flex for the first time?',
+* 'What made you want to try our product for the first time?',
        
 After one-hot-encoding, 50 questions were transformed into 185 features. To visualize the distribution of this high-dimensional data, I made the following PCA scatter plots: 
 
@@ -56,7 +55,7 @@ The main goal of this project is to find the most useful features for classifica
 
 ## Feature insight I
 
-After I finished building the modeling and rank the features by their importance scores, I found the single most important feature is the No. of discs customers used per cycle, as shown in the following figure:  
+After I finished building the modeling and rank the features by their importance scores, I found the single most important feature is the No. of products customers used per cycle, as shown in the following figure:  
 
 <img src='images/feature_insight1.png' width='935' height='368'>
 
@@ -64,7 +63,7 @@ Basically, the more they use the more likely they will be loyal and this is true
 
 ## Feature insight II
 
-For the 2nd round of analysis, I decided to first use the lasso method to prune down the number of features, add all the 2nd-order terms into the feature set to include interaction effects, train the random forest model and then extract feature importance score as done previously.Interestingly, I found some of the interaction terms are better predictors than the disc usage # alone. For example, as shown in the following figure, in the flex dataset, the No. 1 predictor is the customers use many discs and they like to use coupons when buying stuff. In the softcup dataset, the No. 1 predictor is they use many discs and also doing a lot of exercise during the week.
+For the 2nd round of analysis, I decided to first use the lasso method to prune down the number of features, add all the 2nd-order terms into the feature set to include interaction effects, train the random forest model and then extract feature importance score as done previously. Interestingly, I found some of the interaction terms are better predictors than the disc usage # alone. For example, as shown in the following figure, in the flex dataset, the No. 1 predictor is the customers use many products and they like to use coupons when buying stuff. In the Brand B dataset, the No. 1 predictor is they use many products and also doing a lot of exercise during the week.
 
 <img src='images/feature_insight2.png' width='926' height='379'>
 
@@ -73,13 +72,13 @@ For the 2nd round of analysis, I decided to first use the lasso method to prune 
 In this project, I've discovered 3 important traits of loyal customers (as shown in the figure below): 
 * Across 2 brands, customers having high volume on period tend to be loyal 
 * Flex users are price sensitive (like to use coupons when making a purchase)
-* Softcup user are physically active (like to exercise many times a week)
+* Brand B user are physically active (like to exercise many times a week)
 
 <img src='images/conclusion.png' width='770' height='264'>
 
 I translated those discoveries into 3 marketing insights:
 * Large absorption volume is the most valuable feature for these products and should be strongly promoted in marketing efforts  
-* Hold more sales events for Flex users to promote customer loyalty
-* leak-proof protection even when doing exercise is a great feature to appeal to Softcup users
+* Hold more sales events for Brand A users to promote customer loyalty
+* leak-proof protection even when doing exercise is a great feature to appeal to Brand B users
 
 Final thanks to Mr. Panpan Wang, my contact at Flex. I enjoyed the opportunity to learn more about marketing research and analytics.
