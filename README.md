@@ -19,7 +19,7 @@ Flex currently own two different brands (A and B) with two very similar products
 
 ## Data overview
 
-There are two sets of survey data, one for each brand. The two surveys asked the same 50 questions about user demographics, product using experience (e.g. how many discs do you use per cycle), daily habit (e.g. do you often look for coupons when buying stuff, how many times do you exercise per week?)... etc.
+There are two sets of survey data, one for each brand. The two surveys asked the same 50 questions about user demographics, product using experience (e.g. how many products do you use per cycle), daily habit (e.g. do you often look for coupons when buying stuff, how many times do you exercise per week?)... etc.
 The target question in the survey is "how do you use our product?" In the Brand A dataset, ~60% of the customers answered "I use it as my primary product"; ~37% of the customers answered "the product is great, but I still use others"; ~3% of the customers answered "I'm not sure or I don't use it anymore". 
 
 In the Brand B dataset, ~50% of the customers answered "I use it as my primary product"; ~35% of the customers answered "the product is great, but I still use others"; ~15% of the customers answered "I'm not sure or I don't use it anymore". I labeled those customers whose reponses were "I use it as my primary product" as loyal customers and those whose reponses differed as non-loyal customers. 
@@ -37,7 +37,6 @@ For data-preprocessing, I did one-hot-encoding for the following categorical fea
 * 'What is the highest level of education you've received? If currently enrolled, indicate highest degree received.',
 * 'On an average day, how busy would you say you are?',
 * 'What is your primary type of exercise?',
-* 'Which of the following products was your period product of choice before using a menstrual disc?',
 * 'What made you want to try our product for the first time?',
        
 After one-hot-encoding, 50 questions were transformed into 185 features. To visualize the distribution of this high-dimensional data, I made the following PCA scatter plots: 
