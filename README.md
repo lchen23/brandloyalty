@@ -63,7 +63,7 @@ Basically, the more they use the more likely they will be loyal and this is true
 
 ## Feature insight II
 
-For the 2nd round of analysis, I decided to first use the lasso method to prune down the number of features, add all the 2nd-order terms into the feature set to include interaction effects, train the random forest model and then extract feature importance score as done previously. Interestingly, I found some of the interaction terms are better predictors than the disc usage # alone. For example, as shown in the following figure, in the flex dataset, the No. 1 predictor is the customers use many products and they like to use coupons when buying stuff. In the Brand B dataset, the No. 1 predictor is they use many products and also doing a lot of exercise during the week.
+For the 2nd round of analysis, I decided to first use the lasso method to prune down the number of features, add all the 2nd-order terms into the feature set to include interaction effects, train the random forest model and then extract feature importance score as done previously. Interestingly, I found some of the interaction terms are better predictors than the disc usage # alone. For example, as shown in the following figure, in the Brand A dataset, the No. 1 predictor is the customers use many products and they like to use coupons when buying stuff. In the Brand B dataset, the No. 1 predictor is they use many products and also doing a lot of exercise during the week.
 
 <img src='images/feature_insight2.png' width='926' height='379'>
 
@@ -71,8 +71,8 @@ For the 2nd round of analysis, I decided to first use the lasso method to prune 
 
 In this project, I've discovered 3 important traits of loyal customers (as shown in the figure below): 
 * Across 2 brands, customers having high volume on period tend to be loyal 
-* Flex users are price sensitive (like to use coupons when making a purchase)
-* Brand B user are physically active (like to exercise many times a week)
+* Brand A users are price sensitive (like to use coupons when making a purchase)
+* Brand B users are physically active (like to exercise many times a week)
 
 <img src='images/conclusion.png' width='770' height='264'>
 
