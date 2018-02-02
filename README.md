@@ -7,12 +7,12 @@
 
 ## Introduction
 
-During my time as an Insight Health Data Science Fellow, I consulted with [The Flex Company](https://flexfits.com/), a leader in
-innovation in femine care, making innovative products for women on their period. Their mission is to reimagine and deliver life-changing period products for women everywhere. Prior to joining Insight, I received my Ph.D. from the Department of Applied Physics at Stanford University, worked as a post-doctoral fellow and research scientist in Lawrence Berkeley National Lab. As I prepared for my transition to industry, I became fascinated by how data analytics can be used to help business get to know their customers well, respond quickly to their customers' needs and make smart marketing decisions. I was therefore excited by the opportunity to work with Flex to learn more about capturing marketing insights from user surveys. Links to my slides can be found [here](https://docs.google.com/presentation/d/1Ccj7kysmJDRhyKcxaT2dNXoE31HjQyl2l09OQrkjC9Y/edit#slide=id.g2f2e832eb4_0_5).
+During my time as an Insight Health Data Science Fellow, I consulted with the Sweetie company, a leader in
+innovation in femine care, making innovative products for women on their period. Their mission is to reimagine and deliver life-changing period products for women everywhere. Prior to joining Insight, I received my Ph.D. from the Department of Applied Physics at Stanford University, worked as a post-doctoral fellow and research scientist in Lawrence Berkeley National Lab. As I prepared for my transition to industry, I became fascinated by how data analytics can be used to help business get to know their customers well, respond quickly to their customers' needs and make smart marketing decisions. I was therefore excited by the opportunity to work with Sweetie to learn more about capturing marketing insights from user surveys. Links to my slides can be found [here](https://docs.google.com/presentation/d/1Ccj7kysmJDRhyKcxaT2dNXoE31HjQyl2l09OQrkjC9Y/edit#slide=id.g2f2e832eb4_0_5).
 
 ## Problem formulation
 
-Flex currently own two different brands (A and B) with two very similar products. The company want to understand the key differences between users of each brand to help inform their marketing and distribution strategy. They had several hundred users of each brand (1500 total) fill out an identical survey that was meant to capture customers' demographic, geographic, psychographic, media consumption and purchase behavior information. Flex asked for two deliverables: 
+Sweetie currently own two different brands (A and B) with two very similar products. The company want to understand the key differences between users of each brand to help inform their marketing and distribution strategy. They had several hundred users of each brand (1500 total) fill out an identical survey that was meant to capture customers' demographic, geographic, psychographic, media consumption and purchase behavior information. Sweetie asked for two deliverables: 
 
 1. Across the two segments, what factors are most likely to make someone adopt our product as their primary period product?
 2. Is there any significant differences between the two groups? 
@@ -80,4 +80,4 @@ I translated those discoveries into 3 marketing insights:
 * Hold more sales events for Brand A users to promote customer loyalty
 * leak-proof protection even when doing exercise is a great feature to appeal to Brand B users
 
-Final thanks to Mr. Panpan Wang, my contact at Flex. I enjoyed the opportunity to learn more about marketing research and analytics.
+Final thanks to Mr. Wang, my contact at Sweetie. I enjoyed the opportunity to learn more about marketing research and analytics.
