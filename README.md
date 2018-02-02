@@ -2,7 +2,7 @@
 
 ## Presentation
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSEylPFSHmQhrUuKemxfo4OOFFSQoXTjqRhQfN2Rwgt5bzoseed95i83BtVYot-PpNbmxiHTGozCVSy/embed?start=false&amp;loop=true&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSEylPFSHmQhrUuKemxfo4OOFFSQoXTjqRhQfN2Rwgt5bzoseed95i83BtVYot-PpNbmxiHTGozCVSy/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
 ## Introduction
